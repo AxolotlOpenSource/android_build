@@ -180,7 +180,7 @@ $(foreach namespace,$(SOONG_CONFIG_NAMESPACES),\
   $(call end_json_map))
 $(call end_json_map)
 
-include vendor/xperience/build/soong/soong_config.mk
+include vendor/axolotl/build/soong/soong_config.mk
 
 $(call json_end)
 

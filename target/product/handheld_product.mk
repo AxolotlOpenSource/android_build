@@ -38,7 +38,7 @@ PRODUCT_PACKAGES += \
     WallpaperCropper \
     frameworks-base-overlays
 
-ifeq ($(XPERIENCE_BUILD),)
+ifeq ($(AXOLOTL_BUILD),)
 PRODUCT_PACKAGES += \
     LatinIME
 endif

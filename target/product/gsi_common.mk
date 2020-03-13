@@ -23,7 +23,7 @@ $(call inherit-product, $(SRC_TARGET_DIR)/product/telephony_product.mk)
 # Default AOSP sounds
 $(call inherit-product-if-exists, frameworks/base/data/sounds/AllAudio.mk)
 
-ifeq ($(XPERIENCE_BUILD),)
+ifeq ($(AXOLOTL_BUILD),)
 # GSI doesn't support apex for now.
 # Properties set in product take precedence over those in vendor.
 PRODUCT_PRODUCT_PROPERTIES += \
@@ -90,7 +90,7 @@ PRODUCT_PACKAGES += \
 
 # Telephony:
 #   Provide a APN configuration to GSI product
-ifeq ($(XPERIENCE_BUILD),)
+ifeq ($(AXOLOTL_BUILD),)
 PRODUCT_COPY_FILES += \
     device/sample/etc/apns-full-conf.xml:$(TARGET_COPY_OUT_PRODUCT)/etc/apns-conf.xml
 endif

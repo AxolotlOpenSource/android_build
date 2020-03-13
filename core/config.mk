@@ -237,8 +237,8 @@ include $(BUILD_SYSTEM)/envsetup.mk
 FIND_LEAVES_EXCLUDES := $(addprefix --prune=, $(SCAN_EXCLUDE_DIRS) .repo .git)
 
 -include vendor/extra/BoardConfigExtra.mk
-ifneq ($(XPERIENCE_BUILD),)
-include vendor/xperience/config/BoardConfigXPerience.mk
+ifneq ($(AXOLOTL_BUILD),)
+include vendor/axolotl/config/BoardConfigAxolotl.mk
 endif
 $(call project-set-path-variant,ril,TARGET_RIL_VARIANT,hardware/ril)
 
@@ -1181,11 +1181,11 @@ endif
 DEFAULT_DATA_OUT_MODULES := ltp $(ltp_packages) $(kselftest_modules)
 .KATI_READONLY := DEFAULT_DATA_OUT_MODULES
 
-ifneq ($(XPERIENCE_BUILD),)
-ifneq ($(wildcard device/xperience/sepolicy/common/sepolicy.mk),)
+ifneq ($(AXOLOTL_BUILD),)
+ifneq ($(wildcard device/axolotl/sepolicy/common/sepolicy.mk),)
 ## We need to be sure the global selinux policies are included
 ## last, to avoid accidental resetting by device configs
-$(eval include device/xperience/sepolicy/common/sepolicy.mk)
+$(eval include device/axolotl/sepolicy/common/sepolicy.mk)
 endif
 endif
 
@@ -1193,9 +1193,9 @@ endif
 -include vendor/*/build/core/config.mk
 
 # Rules for QCOM targets
--include $(TOPDIR)vendor/xperience/build/core/qcom_target.mk
+-include $(TOPDIR)vendor/axolotl/build/core/qcom_target.mk
 
 # Rules for MTK targets
--include $(TOPDIR)vendor/xperience/build/core/mtk_target.mk
+-include $(TOPDIR)vendor/axolotl/build/core/mtk_target.mk
 
 include $(BUILD_SYSTEM)/dumpvar.mk
